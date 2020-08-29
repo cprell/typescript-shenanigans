@@ -7,10 +7,6 @@ var operators_1 = require("rxjs/operators");
  *  In this case, it will emit 1,2,3,4,5 in order.
  */
 var dataSource = rxjs_1.of(1, 2, 3, 4, 5);
-// subscribe to our source observable
 var subscription = dataSource
-    .pipe(
-// add 1 to each emitted value
-operators_1.map(function (value) { return value + 1; }))
-    // log: 2, 3, 4, 5, 6
+    .pipe(operators_1.map(function (value) { return value + 1; })).pipe(operators_1.map(function (value) { return value / 2; }))
     .subscribe(function (value) { return console.log(value); });
